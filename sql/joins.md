@@ -239,13 +239,13 @@ the result of the query will be
 
 ### Identify customers who have not placed any orders
     
-    ```sql
+```sql
     SELECT c.first_name, c.last_name
     FROM customers AS c
     LEFT JOIN orders AS o
     ON c.customer_id = o.customer_id
     WHERE o.customer_id IS NULL;
-    ```
+```
 
 the result of the query will be
 | first_name | last_name |
@@ -269,13 +269,13 @@ even if they have no orders
 
 #### Identify products without any orders:
     
-    ```sql
+```sql
     SELECT p.product_name, p.price
     FROM products AS p
     LEFT JOIN orders AS o
     ON p.product_id = o.product_id
     WHERE o.product_id IS NULL;
-    ```
+```
 
 the result of the query will be
 | product_name | price |
@@ -296,13 +296,13 @@ the result of the query will be
 
 ### List customers along with the number of orders they've placed
     
-    ```sql
+```sql
     SELECT c.first_name, c.last_name, COUNT(o.order_id) AS num_orders
     FROM customers AS c
     LEFT JOIN orders AS o
     ON c.customer_id = o.customer_id
     GROUP BY c.customer_id;
-    ```
+```
 the result of the query will be
 | first_name | last_name | num_orders |
 | ---------- | --------- | ---------- |
@@ -322,13 +322,13 @@ the result of the query will be
 
 ### Calculate total sales per employee
         
-        ```sql
+```sql
         SELECT e.first_name, e.last_name, SUM(o.total_amount) AS total_sales
         FROM employees AS e
         LEFT JOIN orders AS o
         ON e.employee_id = o.employee_id
         GROUP BY e.employee_id;
-        ```
+```
 
 the result of the query will be
 | first_name | last_name | total_sales |
@@ -349,7 +349,7 @@ the result of the query will be
 
 ### Find the most popular product category based on total sales
         
-        ```sql
+```sql
         SELECT p.category, SUM(o.total_amount) AS total_sales
         FROM products AS p
         LEFT JOIN orders AS o
@@ -357,7 +357,7 @@ the result of the query will be
         GROUP BY p.category
         ORDER BY total_sales DESC
         LIMIT 1;
-        ```
+```
 
 the result of the query will be
 | category | total_sales |
