@@ -10,6 +10,7 @@
 
 - Write a function that takes a string and a character and returns
     a list of strings split by the character.
+    
         - eg. split("hello world", " ") -> ["hello", "world"]
 
 - Write a function that takes a string and returns the first non-repeating
